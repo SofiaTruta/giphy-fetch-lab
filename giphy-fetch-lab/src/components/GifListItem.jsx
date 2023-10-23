@@ -1,8 +1,8 @@
-const GifListItem = ({ data }) => {
+const GifListItem = ({ gif }) => {
     return (
         <div className="gif-list-item">
-            <img src="data.imgUrl" alt="data.title" />
-            <p>{data.title}</p>
+            <img src={gif.images.original.url} alt={gif.title} />
+            <p>{gif.title}</p>
         </div>
     );
 }

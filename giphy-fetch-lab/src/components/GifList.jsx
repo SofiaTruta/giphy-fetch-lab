@@ -1,12 +1,15 @@
 import GifListItem from "./GifListItem";
 
-const GifList = ({searchResult}) => {
-
+const GifList = ({ gifs }) => {
+    console.log(gifs)
     return (
         <div className="gif-list">
-             {data.map((gif) => {
-                <GifListItem key={gif.id} data={gif} />
-             })}
+            <p>test test</p>
+      
+                {gifs && gifs.map((gif) => (
+                    <GifListItem gif={gif} key={gif.id} />
+                ))}
+          
         </div>
     );
 }
