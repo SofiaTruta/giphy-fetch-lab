@@ -1,12 +1,26 @@
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import GifList from './components/GifList';
 
-import './App.css';
+const App = () => {
+  const [gifs, setGifs] = useState([]);
 
-function App() {
+  const doThaSearchInit = async (searchTerm) => {
+    const apiKey = process.env.GIPHY_API_KEY;
+    const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}`;
+
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    setGifs(data.data);
+  };
+
   return (
-    <div className="App">
-     
+    <div>
+      <h1>Search for GIFs</h1>
+      <SearchBar onSearch={doThaSearchInit} />
+      <GifList gifs={gifs} />
     </div>
   );
-}
+};
 
 export default App;
