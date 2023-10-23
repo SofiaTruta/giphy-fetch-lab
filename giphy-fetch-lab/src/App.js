@@ -1,11 +1,15 @@
-import './App.css';
+import SearchBar from './components/SearchBar'
+import GifList from './components/GifList'
+import { useState } from 'react'
 
 function App() {
+  const [gifs, setGifs] = useState()
+
   async function onSearch(searchTerm) {
     try {
       const response = await fetch(`http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${process.env.GIPHY_API_KEY}&limit=8`)
       const data = await response.json()
-      return data
+      setGifs(data.data)
     } catch (err) {
       console.error(err)
     }
@@ -15,7 +19,7 @@ function App() {
     <div className='App'>
       <h1>Search for any GIFs</h1>
       <SearchBar onSearch={onSearch} />
-      <GifList searchResult={onSearch} />
+      <GifList gifs={gifs} />
     </div>
   );
 }
