@@ -1,9 +1,11 @@
-import SearchBar from './components/SearchBar'
-import GifList from './components/GifList'
-import { useState } from 'react'
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import GifList from './components/GifList';
 
-function App() {
-  const [gifs, setGifs] = useState()
+
+const App = () => {
+  const [gifs, setGifs] = useState([]);
+
 
   async function onSearch(searchTerm) {
     try {
@@ -16,13 +18,14 @@ function App() {
     }
   }
 
+
   return (
-    <div className='App'>
-      <h1>Search for any GIFs</h1>
+    <div>
+      <h1>Search for GIFs</h1>
       <SearchBar onSearch={onSearch} />
       <GifList gifs={gifs} />
     </div>
   );
-}
+};
 
 export default App;
