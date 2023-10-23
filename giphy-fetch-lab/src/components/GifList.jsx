@@ -11,4 +11,4 @@ const GifList = ({searchResult}) => {
     );
 }
 
-export default G;
+export default GifList;
