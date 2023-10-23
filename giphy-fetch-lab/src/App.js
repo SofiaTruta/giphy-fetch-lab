@@ -15,7 +15,7 @@ function App() {
     <div className='App'>
       <h1>Search for any GIFs</h1>
       <SearchBar onSearch={onSearch} />
-      <GifList searchTerm={searchTerm} />
+      <GifList searchResult={onSearch} />
     </div>
   );
 }
