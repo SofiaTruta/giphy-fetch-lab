@@ -7,8 +7,9 @@ function App() {
 
   async function onSearch(searchTerm) {
     try {
-      const response = await fetch(`http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${process.env.GIPHY_API_KEY}&limit=8`)
+      const response = await fetch(`http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${process.env.REACT_APP_GIPHY_API_KEY}&limit=8`)
       const data = await response.json()
+      // console.log(data.data);
       setGifs(data.data)
     } catch (err) {
       console.error(err)
