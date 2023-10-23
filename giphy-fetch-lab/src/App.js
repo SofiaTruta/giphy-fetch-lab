@@ -20,7 +20,7 @@ const App = () => {
 
 
   return (
-    <div>
+    <div className='App'>
       <h1>Search for GIFs</h1>
       <SearchBar onSearch={onSearch} />
       <GifList gifs={gifs} />
